@@ -62,9 +62,8 @@ Figure below compares the accuracy of tested generic NN configurations after `10
 
 Table below presents the measured accuracies on both datasets (random and combined) comparing rsNNs resulting from different refinements with the baseline. The last two models outperform the baseline in terms of accuracy. The *# of Weighs* line refers to the number of trainable weights in each model. While the baseline has many weights (as it features two dense layers), our rsNNs have significantly fewer weights since their composition benefits from the domain knowledge ingrained in the adaptation rules. This makes them much faster to train in order to achieve comparable accuracy levels.
 
-
 |		              | baseline  | time (A\&B) | time (right) | all       | 
-|--------------------------------------------------------------------------|		
+|---------------------|-----------|-------------|--------------|-----------|		
 | Accuracy (random)   | `99.159%` | `98.878%`   | `99.999%`    | `99.978%` |
 | Accuracy (combined) | `99.393%` | `92.867%`   | `99.993%`    | `99.575%` |
 | # of weights        | `68,353`  | `2`         | `21`         | `1,227`   |
