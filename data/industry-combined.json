@@ -1,0 +1,20 @@
+{
+    "dataSetConfig": {
+        "name": "ftnn-combined",
+        "trainCount": 432000,
+        "valCount": 48000,
+        "inputKeys": [
+            "time",
+            "posX",
+            "posY",
+            "wpId:A",
+            "wpId:B",
+            "wpId:C",
+            "hgerEvents[0]:TAKE_HGEAR",
+            "hgerEvents[0]:RET_HGEAR"
+        ],
+        "outputKeys": [
+            "accessToWorkplace"
+        ]
+    }
+}

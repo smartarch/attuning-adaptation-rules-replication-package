@@ -1,0 +1,17 @@
+{
+    "dataSetConfig": {
+        "name": "ftnn-synth-conj",
+        "trainCount": 558000,
+        "valCount": 62000,
+        "inputKeys": [
+            "y0",
+            "y1",
+            "y2",
+            "y3",
+            "y4"
+        ],
+        "outputKeys": [
+            "access"
+        ]
+    }
+}
