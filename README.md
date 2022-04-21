@@ -166,7 +166,7 @@ These three configurations were presented in the paper. Additionally, we have tr
 $> python custom.py --verbose --model synth synthfile.hdf5
 ```
 
-## Training the ReCodEx Models
+## 5 Training the ReCodEx Models
 
 The preprocessed input (using the default arguments) is composed of features from 3 domains:
 
