@@ -1,4 +1,4 @@
-# Results from Industry 4.0 Model Case
+# Results from Industry 4.0 model case
 
 There are four CSV files available:
 * `industry-base.csv` -- baseline results for industry model
@@ -45,9 +45,9 @@ c10
 The model names for baseline are the same as for industry example. The `synth` model denotes our approach.
 
 
-# Results from ABCDE Model Case
+# Results from ReCodEx code assignments model case
 
-All results are aggregated in `abcde.csv` file. We have tried networks with one hidden layer ranging from 64 to 256, as the results indicate all models are quite similar in the terms of accuracy. Summarized accuracy values are below:
+All results are aggregated in `recodex.csv` file. We have tried networks with one hidden layer ranging from 64 to 256, as the results indicate all models are quite similar in the terms of accuracy. Summarized accuracy values are below:
 
 ```
   dense-64:  mean = 0.8600960850715638  std.dev = 0.005464712119836069

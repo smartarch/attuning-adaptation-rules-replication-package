@@ -101,9 +101,9 @@ For the **Industry 4.0 example**, we provide four [datasets](data): The `combine
 
 The dataset are in `.hdf5` format which can be directly used by our training scripts. Each dataset is accompanied by a `.json` file which holds the metadata (the file is not necessary, we provide it only for illustration).
 
-The example from **ReCodEx system for evaluation of coding assignments** uses data collected from the logs of our instance. The [abcde-solutions.csv](data/abcde-solutions.csv) holds raw metadata of all submitted jobs (please note it was gziped), [abcde-ref-solutions.csv](data/abcde-ref-solutions.csv) contains reference solutions that can be used to estimate duration of new incoming jobs.
+The example from **ReCodEx system for evaluation of coding assignments** uses data collected from the logs of our instance. The [recodex-solutions.csv](data/recodex-solutions.csv) holds raw metadata of all submitted jobs (please note it was gziped), [recodex-ref-solutions.csv](data/recodex-ref-solutions.csv) contains reference solutions that can be used to estimate duration of new incoming jobs.
 
-The `abcde-preprocess.py` script parses the CSV files and generate a `.hdf5` file for the machine learning process. It randomly selects three sets of jobs:
+The `recodex-preprocess.py` script parses the CSV files and generate a `.hdf5` file for the machine learning process. It randomly selects three sets of jobs:
 * jobs that are slow
 * jobs that are not slow but could have been identified as such
 * fast jobs
@@ -111,11 +111,11 @@ All three sets are selected to have the same size.
 
 Job logs are combined in cartesian product with possible queue states. The emulated configuration uses 4 queues, the first one is dedicated for slow jobs and the remaining three are for fast jobs (slow queue can accept fast jobs if idle, but fast queues must not be blocked by slow jobs as it will jeopardize the latency). The queue state is represented by four float numbers between 0 and 1 (to be ready for ML processing), 0 denotes empty queue, 1 is currently the most full queue of the system.
 
-The outputs are computed using algorithm you can find in `compute_output` function of the `abcde-preprocess.py` script.
+The outputs are computed using algorithm you can find in `compute_output` function of the `recodex-preprocess.py` script.
 
 The `.hdf5` file with default arguments is generated as follows:
 ```
-$> ./abcde-preprocess.py --refs ./data/abcde-ref-solutions.csv ./data/abcde-solutions.csv ./data/abcde.hdf5
+$> ./recodex-preprocess.py --refs ./data/recodex-ref-solutions.csv ./data/recodex-solutions.csv ./data/recodex.hdf5
 ```
 
 Both datasets are divided into two parts -- training set and testing set. The testing set has approximately `10%` the size of the training set.
@@ -187,11 +187,11 @@ The outputs are saved as probabilistic distribution of a classification problem 
 
 Once you have the preprocessed `.hdf5` file, simply execute
 ```
-$> abcde.py ./data/abcde.hdf5 <hidden-layer-width>
+$> recodex.py ./data/recodex.hdf5 <hidden-layer-width>
 ```
 for the baseline model and
 ```
-$> abcde.py ./data/abcde.hdf5 custom <hidden-layer-width>
+$> recodex.py ./data/recodex.hdf5 custom <hidden-layer-width>
 ```
 for our custom model. The width of the hidden layer is configurable, even rather small values like 64 should be enough as the inputs are extremely wide (in hot-one encoding), so there are enough trainable parameters between the input layer and hidden layer.
 
